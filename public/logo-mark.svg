@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Artino Studio Art Academy">
+  <title>Artino Studio Art Academy</title>
+  <circle cx="24" cy="24" r="23" fill="#bb5636" />
+  <path
+    d="M15.4 33.4 24 13.4l8.6 20"
+    fill="none"
+    stroke="#17130f"
+    stroke-width="2.1"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path d="M19.1 27.2h9.8" stroke="#c29a52" stroke-width="2.1" stroke-linecap="round" />
+  <path
+    d="M8.6 39.2c5.4-2.7 8.2 1.2 13.2-1.6 3.8-2.1 6.2.3 9.4-1"
+    fill="none"
+    stroke="#c29a52"
+    stroke-width="1.7"
+    stroke-linecap="round"
+    opacity=".85"
+  />
+</svg>

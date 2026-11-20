@@ -1,0 +1,37 @@
+<section class="notfound" aria-labelledby="notfound-title">
+  <span class="notfound__ghost" aria-hidden="true">404</span>
+
+  <div class="container notfound__inner">
+    <div class="notfound__copy">
+      <span class="eyebrow">404 · Lost in the studio</span>
+      <h1 class="display notfound__title" id="notfound-title">
+        This wall is
+        <em class="serif-italic clay">empty.</em>
+      </h1>
+      <p class="lead notfound__lead">
+        The page you were looking for is not hanging here. It may have been moved, renamed, or never
+        made it past the sketchbook.
+      </p>
+
+      <div class="notfound__actions">
+        <a class="btn btn--primary" routerLink="/">Back to the studio</a>
+        <a class="btn btn--outline" routerLink="/courses">Browse programmes</a>
+      </div>
+
+      <ul class="notfound__links">
+        <li><a routerLink="/gallery">The gallery <span aria-hidden="true">↗</span></a></li>
+        <li><a routerLink="/about">About the academy <span aria-hidden="true">↗</span></a></li>
+        <li><a routerLink="/contact">Contact the studio <span aria-hidden="true">↗</span></a></li>
+      </ul>
+    </div>
+
+    <div class="notfound__media" aria-hidden="true">
+      @for (work of works; track work.id; let i = $index) {
+        <figure class="notfound__card" [style.--i]="i">
+          <img [src]="work.image" alt="" loading="eager" decoding="async" />
+        </figure>
+      }
+      <span class="notfound__label">Hung slightly crooked</span>
+    </div>
+  </div>
+</section>

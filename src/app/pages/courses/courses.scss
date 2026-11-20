@@ -1,0 +1,381 @@
+/* ---------- Course grid ---------- */
+
+.courses__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  margin-bottom: 2.2rem;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.courses__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.courses__count {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+.courses__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.35rem;
+}
+
+.courses__grid > * {
+  display: flex;
+}
+
+.courses__grid app-course-card {
+  display: flex;
+  width: 100%;
+}
+
+.courses__note {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 2rem;
+  font-size: 0.76rem;
+  color: var(--ink-3);
+}
+
+.courses__note span {
+  color: var(--clay);
+}
+
+/* ---------- Comparison table ---------- */
+
+.compare__table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  -webkit-overflow-scrolling: touch;
+}
+
+.compare__table {
+  width: 100%;
+  min-width: 880px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.compare__table thead th {
+  padding: 1rem 0.9rem;
+  border-bottom: 1px solid var(--ink);
+  font-family: var(--font-sans);
+  font-size: 0.56rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--clay);
+  white-space: nowrap;
+}
+
+.compare__table tbody tr {
+  transition: background 0.35s var(--ease);
+}
+
+.compare__table tbody tr:hover {
+  background: var(--cream);
+}
+
+.compare__table tbody tr:not(:last-child) th,
+.compare__table tbody tr:not(:last-child) td {
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.compare__table tbody th,
+.compare__table tbody td {
+  padding: 1.05rem 0.9rem;
+  font-size: 0.8rem;
+  color: var(--ink-3);
+  vertical-align: middle;
+}
+
+.compare__table tbody th {
+  min-width: 13rem;
+}
+
+.compare__table tbody th a {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  transition: color 0.3s var(--ease);
+}
+
+.compare__table tbody th a:hover {
+  color: var(--clay);
+}
+
+.compare__category {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.54rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+.compare__fee {
+  color: var(--ink) !important;
+  font-family: var(--font-display);
+  font-size: 1rem !important;
+  white-space: nowrap;
+}
+
+.compare__link {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--ink);
+  font-size: 0.9rem;
+  transition: background 0.3s var(--ease), color 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+
+.compare__link:hover {
+  background: var(--clay);
+  border-color: var(--clay);
+  color: var(--white);
+}
+
+/* ---------- Admissions ---------- */
+
+.admissions__head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 38rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.admissions__title {
+  margin-top: 1rem;
+  max-width: 15ch;
+}
+
+.admissions__lead {
+  margin: 1.4rem 0 1.75rem;
+  max-width: 40ch;
+  color: var(--ink-3);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.admissions__steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+}
+
+.admissions__step {
+  position: relative;
+  padding: 1.75rem 2rem 0 0;
+  border-top: 1px solid var(--ink);
+}
+
+.admissions__step:not(:first-child) {
+  padding-left: 2rem;
+  border-left: 1px solid var(--line);
+}
+
+.admissions__num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  line-height: 1;
+  color: var(--clay);
+  margin-bottom: 1.25rem;
+}
+
+.admissions__step-title {
+  margin-bottom: 0.6rem;
+}
+
+.admissions__step p {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--ink-3);
+  max-width: 32ch;
+}
+
+.admissions__line {
+  display: block;
+  width: 2.5rem;
+  height: 1px;
+  margin-top: 1.5rem;
+  background: var(--gold);
+}
+
+/* ---------- Included ---------- */
+
+.included__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: start;
+}
+
+.included__title {
+  margin-top: 1rem;
+  max-width: 10ch;
+}
+
+.included__lead {
+  margin-top: 1.4rem;
+  max-width: 32ch;
+  color: var(--ink-3);
+  font-size: 0.94rem;
+  line-height: 1.7;
+}
+
+.included__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.included__list li {
+  padding: 1.6rem;
+  background: var(--paper);
+  transition: background 0.4s var(--ease);
+}
+
+.included__list li:hover {
+  background: var(--white);
+}
+
+.included__num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  color: var(--clay);
+  margin-bottom: 1rem;
+}
+
+.included__list h3 {
+  font-family: var(--font-display);
+  font-size: 1.22rem;
+  line-height: 1.2;
+  margin-bottom: 0.45rem;
+}
+
+.included__list p {
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: var(--ink-3);
+}
+
+/* ---------- FAQ ---------- */
+
+.faq-courses__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.65fr) minmax(0, 1.35fr);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: start;
+}
+
+.faq-courses__head {
+  position: sticky;
+  top: 148px;
+}
+
+.faq-courses__head h2 {
+  margin-top: 1rem;
+  max-width: 10ch;
+}
+
+.faq-courses__lead {
+  margin: 1.4rem 0 1.5rem;
+  max-width: 30ch;
+  color: var(--ink-3);
+  font-size: 0.93rem;
+  line-height: 1.7;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1080px) {
+  .courses__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .courses__grid > *:last-child {
+    max-width: calc(50% - 0.7rem);
+  }
+
+  .included__inner,
+  .faq-courses__inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .faq-courses__head {
+    position: static;
+  }
+}
+
+@media (max-width: 860px) {
+  .admissions__steps {
+    grid-template-columns: 1fr;
+  }
+
+  .admissions__step {
+    padding: 1.4rem 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .admissions__step:not(:first-child) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .admissions__num {
+    font-size: 2rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .admissions__line {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .courses__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .courses__grid > *:last-child {
+    max-width: none;
+  }
+
+  .courses__toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .included__list {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,163 @@
+.cta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--cream);
+  padding-block: clamp(4.5rem, 9vw, 8rem);
+}
+
+.cta__media {
+  position: absolute;
+  inset: 0 0 0 auto;
+  z-index: -2;
+  width: 56%;
+}
+
+.cta__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, var(--ink) 0%, rgba(23, 19, 15, 0.75) 32%, rgba(23, 19, 15, 0.2) 100%),
+    linear-gradient(180deg, rgba(23, 19, 15, 0.15), rgba(23, 19, 15, 0.6));
+}
+
+.cta__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.8);
+}
+
+.cta__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.52fr);
+  align-items: end;
+  gap: clamp(2.5rem, 6vw, 6rem);
+}
+
+.cta__copy {
+  max-width: 46rem;
+}
+
+.cta__title {
+  margin: 1rem 0 1.4rem;
+  max-width: 14ch;
+}
+
+.cta__title em {
+  color: var(--gold);
+}
+
+.cta__text {
+  color: var(--cream-3);
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 40ch;
+}
+
+.cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.cta__aside {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 1.5rem 0 0.4rem 1.6rem;
+  border-left: 1px solid var(--line-light);
+}
+
+.cta__label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.cta__aside address {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  line-height: 1.35;
+  font-style: normal;
+  color: var(--cream);
+}
+
+.cta__aside-note {
+  font-size: 0.78rem;
+  color: var(--ink-4);
+}
+
+.cta__seal {
+  position: absolute;
+  right: -1rem;
+  bottom: -1.5rem;
+  width: 7.5rem;
+  height: 7.5rem;
+  color: var(--cream-3);
+  opacity: 0.85;
+  animation: spin-slow 30s linear infinite;
+}
+
+.cta__seal svg {
+  width: 100%;
+  height: 100%;
+}
+
+.cta__seal text {
+  fill: currentColor;
+  font-family: var(--font-sans);
+  font-size: 7.4px;
+  font-weight: 700;
+  letter-spacing: 1.55px;
+}
+
+.cta__seal-star {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--gold);
+  font-size: 1.15rem;
+  animation: spin-slow 24s linear infinite reverse;
+}
+
+@media (max-width: 900px) {
+  .cta__media {
+    width: 100%;
+    opacity: 0.42;
+  }
+
+  .cta__media::after {
+    background: linear-gradient(180deg, rgba(23, 19, 15, 0.82), rgba(23, 19, 15, 0.94));
+  }
+
+  .cta__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .cta__aside {
+    max-width: 24rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .cta__actions .btn {
+    width: 100%;
+  }
+
+  .cta__aside {
+    padding-left: 1.1rem;
+  }
+
+  .cta__seal {
+    display: none;
+  }
+}

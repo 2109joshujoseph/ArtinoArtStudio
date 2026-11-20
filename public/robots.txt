@@ -1,0 +1,6 @@
+# Artino Studio Art Academy — robots.txt
+User-agent: *
+Allow: /
+Disallow: /404
+
+Sitemap: https://artinostudio.academy/sitemap.xml

@@ -1,0 +1,134 @@
+<header class="site-header" [class.is-stuck]="stuck()" [class.is-open]="menuOpen()">
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <a class="topbar__notice" routerLink="/contact" aria-label="Admissions open — book a studio visit">
+        <span class="topbar__pulse" aria-hidden="true"><span></span></span>
+        <span>{{ site.admissions }}</span>
+        <span class="topbar__arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <div class="topbar__meta">
+        <a class="topbar__link" [href]="'tel:' + site.phoneHref">{{ site.phone }}</a>
+        <span class="topbar__rule" aria-hidden="true"></span>
+        <a class="topbar__link" [href]="'mailto:' + site.email">{{ site.email }}</a>
+        <span class="topbar__rule" aria-hidden="true"></span>
+        <ul class="topbar__socials" aria-label="Social media">
+          @for (social of site.socials; track social.label) {
+            <li>
+              <a [href]="social.url" target="_blank" rel="noopener noreferrer" [attr.aria-label]="social.label">
+                {{ social.short }}
+              </a>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav">
+    <div class="container nav__inner">
+      <app-brand-logo [compact]="stuck()" />
+
+      <nav class="nav__links" aria-label="Primary">
+        <ul>
+          @for (link of links; track link.path) {
+            <li>
+              <a
+                [routerLink]="link.path"
+                routerLinkActive="is-active"
+                [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+                >{{ link.label }}</a
+              >
+            </li>
+          }
+        </ul>
+      </nav>
+
+      <div class="nav__actions">
+        <a class="btn btn--primary btn--sm nav__cta" routerLink="/contact">
+          Book a visit
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M7 17 17 7M8 7h9v9" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+
+        <button
+          type="button"
+          class="menu-toggle"
+          [class.is-active]="menuOpen()"
+          [attr.aria-expanded]="menuOpen()"
+          aria-controls="mobile-menu"
+          [attr.aria-label]="menuOpen() ? 'Close menu' : 'Open menu'"
+          (click)="toggleMenu()"
+        >
+          <span class="menu-toggle__bars" aria-hidden="true"><span></span><span></span></span>
+          <span class="menu-toggle__label" aria-hidden="true">{{ menuOpen() ? 'Close' : 'Menu' }}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+@if (menuOpen()) {
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Site menu">
+    <div class="mobile-menu__inner">
+      <nav class="mobile-menu__nav" aria-label="Mobile">
+        <ol>
+          @for (link of links; track link.path; let i = $index) {
+            <li class="mobile-menu__item" [style.--i]="i">
+              <a [routerLink]="link.path" (click)="closeMenu()">
+                <span class="mobile-menu__num" aria-hidden="true">{{ (i + 1).toString().padStart(2, '0') }}</span>
+                <span class="mobile-menu__label">{{ link.label }}</span>
+                <span class="mobile-menu__arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+          }
+        </ol>
+      </nav>
+
+      <aside class="mobile-menu__aside">
+        <div class="mobile-menu__block">
+          <p class="mobile-menu__eyebrow">Programmes</p>
+          <ul class="mobile-menu__programmes">
+            @for (programme of programmes; track programme.slug) {
+              <li>
+                <a [routerLink]="'/contact'" [queryParams]="{ course: programme.title }" (click)="closeMenu()">
+                  {{ programme.title }}
+                </a>
+              </li>
+            }
+          </ul>
+        </div>
+
+        <div class="mobile-menu__block">
+          <p class="mobile-menu__eyebrow">The studio</p>
+          <address class="mobile-menu__address">
+            @for (line of site.addressLines; track line) {
+              {{ line }}<br />
+            }
+            {{ site.locality }} {{ site.postalCode }}, {{ site.region }}
+          </address>
+          <a class="mobile-menu__contact" [href]="'tel:' + site.phoneHref">{{ site.phone }}</a>
+          <a class="mobile-menu__contact" [href]="'mailto:' + site.email">{{ site.email }}</a>
+        </div>
+
+        <div class="mobile-menu__block">
+          <p class="mobile-menu__eyebrow">Follow</p>
+          <ul class="mobile-menu__socials">
+            @for (social of site.socials; track social.label) {
+              <li>
+                <a [href]="social.url" target="_blank" rel="noopener noreferrer">{{ social.label }}</a>
+              </li>
+            }
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <div class="mobile-menu__foot">
+      <span>{{ site.admissions }}</span>
+      <span class="dot" aria-hidden="true"></span>
+      <span>Fort Kochi · Kerala</span>
+    </div>
+  </div>
+}

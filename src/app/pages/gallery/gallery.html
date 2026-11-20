@@ -1,0 +1,76 @@
+<app-page-hero
+  eyebrow="The gallery"
+  title="Work from"
+  accent="the table."
+  description="An evolving archive of paintings, drawings, ceramics and murals made in the studio. Every piece began as a question — and ended on a wall."
+  image="images/abstract-chromatic.jpg"
+  alt="A vivid abstract painting in yellow, orange, teal and crimson"
+  [crumbs]="[
+    { name: 'Home', path: '/' },
+    { name: 'Gallery', path: '/gallery' }
+  ]"
+>
+  <a class="btn btn--primary" routerLink="/contact" [queryParams]="{ subject: 'Next exhibition' }">
+    Visit the next show
+  </a>
+  <a class="btn btn--outline" routerLink="/courses">Make your own work</a>
+</app-page-hero>
+
+<section class="section gallery-page" aria-labelledby="gallery-title">
+  <div class="container">
+    <app-section-heading
+      eyebrow="Selected works"
+      title="A living"
+      accent="archive."
+      description="Filter by medium, or open any work to see the maker, materials and year. Works are exhibited at the end of each term."
+    />
+
+    <app-gallery-grid [items]="items" [showFilters]="true" [masonry]="true" />
+  </div>
+</section>
+
+<section class="section archive section--cream" aria-labelledby="archive-title">
+  <div class="container archive__inner">
+    <div class="archive__head">
+      <span class="eyebrow">The term show</span>
+      <h2 class="h2 archive__title" id="archive-title" appReveal>
+        Every term ends
+        <em class="serif-italic clay">on a wall.</em>
+      </h2>
+      <p class="archive__lead" appReveal [revealDelay]="80">
+        Making for an audience changes the way you make for yourself. Twice a year we clear the tables,
+        hang the work and open the doors to family, friends and the neighbourhood.
+      </p>
+      <a class="btn btn--outline btn--sm" routerLink="/contact" [queryParams]="{ subject: 'Exhibition invitation' }">
+        Join the invitation list
+      </a>
+    </div>
+
+    <div class="archive__side">
+      <dl class="archive__facts" appReveal="right">
+        @for (note of notes; track note.label) {
+          <div class="archive__fact">
+            <dt>{{ note.label }}</dt>
+            <dd>{{ note.value }}</dd>
+          </div>
+        }
+      </dl>
+
+      <blockquote class="archive__quote" appReveal="right">
+        <p>
+          “The exhibition is not a prize-giving. It is a room where the work has to stand on its own —
+          and where the maker discovers what they actually meant.”
+        </p>
+        <footer>Rohan D'Souza · Drawing & Printmaking</footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<app-cta-section
+  eyebrow="See it in person"
+  title="The next show is"
+  accent="almost hung."
+  description="Studio visits run through the week, and exhibition evenings are open to everyone. Write to us and we will save you a place."
+  buttonLabel="Request an invitation"
+/>

@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Artino OG card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Manrope:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { background: #f5efe4; }
+      body { display: block; margin: 0; font-family: 'Manrope', sans-serif; }
+
+      .og {
+        position: relative;
+        width: 1200px;
+        height: 630px;
+        display: grid;
+        grid-template-columns: 1.08fr 0.92fr;
+        background: #f5efe4;
+        color: #17130f;
+        overflow: hidden;
+      }
+
+      .og__panel {
+        position: relative;
+        z-index: 2;
+        padding: 56px 64px 52px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .brand { display: flex; align-items: center; gap: 14px; }
+
+      .brand__mark {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: #bb5636;
+        color: #17130f;
+        flex: none;
+      }
+      .brand__mark svg { width: 38px; height: 38px; }
+
+      .brand__name {
+        font-family: 'Fraunces', Georgia, serif;
+        font-size: 24px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        line-height: 1;
+      }
+      .brand__sub {
+        display: block;
+        margin-top: 6px;
+        font-size: 11px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: #6d5f50;
+        font-weight: 600;
+      }
+
+      .og__body { padding-right: 8px; }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: #8a4a30;
+      }
+      .eyebrow::before {
+        content: '';
+        width: 26px;
+        height: 1px;
+        background: #c29a52;
+      }
+
+      .headline {
+        margin-top: 22px;
+        font-family: 'Fraunces', Georgia, serif;
+        font-weight: 400;
+        font-size: 62px;
+        line-height: 1.02;
+        letter-spacing: -0.02em;
+        max-width: 540px;
+      }
+      .headline em { font-style: italic; color: #bb5636; }
+
+      .og__footer { display: flex; flex-direction: column; gap: 18px; }
+
+      .rule { width: 88px; height: 2px; background: #c29a52; }
+
+      .disciplines {
+        font-size: 14.5px;
+        font-weight: 500;
+        letter-spacing: 0.01em;
+        color: #4b4137;
+        line-height: 1.6;
+        max-width: 500px;
+      }
+      .disciplines span { color: #c29a52; padding: 0 5px; }
+
+      .og__media { position: relative; overflow: hidden; }
+      .og__media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 62% center;
+        filter: saturate(1.02) contrast(1.02);
+      }
+      .og__media::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, rgba(23, 19, 15, 0.28), rgba(23, 19, 15, 0) 38%);
+      }
+      .og__band {
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 12px;
+        background: #bb5636;
+        z-index: 3;
+      }
+      .og__badge {
+        position: absolute;
+        right: 26px;
+        bottom: 26px;
+        z-index: 4;
+        background: rgba(245, 239, 228, 0.94);
+        color: #17130f;
+        padding: 12px 18px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="og" id="og">
+      <div class="og__panel">
+        <div class="brand">
+          <span class="brand__mark">
+            <svg viewBox="0 0 48 48" aria-hidden="true">
+              <path d="M15.4 33.4 24 13.4l8.6 20" fill="none" stroke="#17130f" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M19.1 27.2h9.8" stroke="#c29a52" stroke-width="2.1" stroke-linecap="round" />
+              <path d="M8.6 39.2c5.4-2.7 8.2 1.2 13.2-1.6 3.8-2.1 6.2.3 9.4-1" fill="none" stroke="#c29a52" stroke-width="1.7" stroke-linecap="round" opacity=".85" />
+            </svg>
+          </span>
+          <span>
+            <span class="brand__name">Artino</span>
+            <span class="brand__sub">Studio · Art Academy</span>
+          </span>
+        </div>
+
+        <div class="og__body">
+          <span class="eyebrow">Fort Kochi · Kerala</span>
+          <h1 class="headline">Where <em>imagination</em> finds its craft.</h1>
+        </div>
+
+        <div class="og__footer">
+          <span class="rule"></span>
+          <p class="disciplines">
+            Drawing <span>·</span> Painting <span>·</span> Ceramics <span>·</span> Printmaking
+            <span>·</span> Digital Art <span>·</span> Portfolio Preparation
+          </p>
+        </div>
+      </div>
+
+      <div class="og__media">
+        <img src="../public/images/hero-main.jpg" alt="Paint brushes and palette at Artino Studio" />
+        <span class="og__band"></span>
+        <span class="og__badge">Est. 2014</span>
+      </div>
+    </div>
+  </body>
+</html>

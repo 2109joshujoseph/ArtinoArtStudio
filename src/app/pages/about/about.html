@@ -1,0 +1,257 @@
+<app-page-hero
+  eyebrow="About the studio"
+  title="A room built for"
+  accent="looking."
+  description="Twelve years, one long table, and a stubborn belief that attention is the real curriculum."
+  [image]="images.aboutMain"
+  alt="A deep blue abstract painting made in the Artino studio"
+  [crumbs]="[
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' }
+  ]"
+>
+  <a class="btn btn--primary" routerLink="/courses">Explore programmes</a>
+  <a class="btn btn--outline" routerLink="/contact">Visit the studio</a>
+</app-page-hero>
+
+<section class="section story" aria-labelledby="story-title">
+  <div class="container story__inner">
+    <div class="story__head">
+      <span class="eyebrow">The beginning</span>
+      <h2 class="h2 story__title" id="story-title" appReveal>
+        One table,
+        <em class="serif-italic clay">still.</em>
+      </h2>
+      <p class="story__meta" appReveal [revealDelay]="80">Fort Kochi · 2014 – 2026</p>
+    </div>
+
+    <div class="story__body">
+      <p class="story__lead" appReveal>
+        Artino began above a spice warehouse on Bazaar Road with six students, one long table and
+        borrowed chairs. Anaya Menon had returned from Baroda with a painting practice and a question:
+        what would happen if art classes felt less like school and more like a studio?
+      </p>
+
+      <div class="story__cols">
+        <p appReveal [revealDelay]="80">
+          Twelve years later, the answer is still being worked out in the same room. The chairs are
+          better. There is a kiln, a press and a digital corner. But the table has not grown, and neither
+          has the class size. Eight seats, one faculty member, and enough time to look at what is
+          actually in front of you.
+        </p>
+        <p appReveal [revealDelay]="140">
+          We are an academy in the oldest sense: a place where people gather around a practice. Children
+          learn to see before they learn to render. Teenagers build portfolios that sound like themselves.
+          Adults rediscover the pleasure of making something slowly, with their hands, in company.
+        </p>
+      </div>
+
+      <div class="story__media">
+        <figure class="story__figure story__figure--tall" appReveal="left">
+          <img
+            [src]="images.aboutSecondary"
+            alt="Well-used brushes loaded with layers of colour"
+            width="800"
+            height="1000"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>The tools, after a Tuesday evening class.</figcaption>
+        </figure>
+
+        <figure class="story__figure story__figure--small" appReveal="right">
+          <img
+            src="images/ceramics-vessels.jpg"
+            alt="Three pale hand-thrown ceramic vessels holding dried seed heads"
+            width="600"
+            height="600"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>Stoneware from the ceramics table.</figcaption>
+        </figure>
+      </div>
+
+      <blockquote class="story__quote" appReveal>
+        <p>
+          “The work gets better when someone looks at it properly. Everything else — the materials,
+          the curriculum, the exhibition — follows from that.”
+        </p>
+        <footer>
+          <span class="story__quote-name">Anaya Menon</span>
+          <span class="story__quote-role">Founder & Painting Faculty</span>
+        </footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="section values section--cream" aria-labelledby="values-title">
+  <div class="container">
+    <app-section-heading
+      eyebrow="What we hold to"
+      title="Four beliefs,"
+      accent="patiently kept."
+      description="They are not slogans on a wall. They decide how many students we take, how we critique work, and why every term ends in an exhibition."
+      align="center"
+    />
+
+    <div class="values__grid">
+      @for (value of values; track value.title; let i = $index) {
+        <article class="values__card" appReveal [revealDelay]="i * 90">
+          <span class="values__num" aria-hidden="true">{{ (i + 1).toString().padStart(2, '0') }}</span>
+          <h3 class="h3 values__title">{{ value.title }}</h3>
+          <p class="values__text">{{ value.text }}</p>
+          <span class="values__icon" aria-hidden="true">
+            @switch (value.icon) {
+              @case ('window') {
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <rect x="5" y="5" width="22" height="22" rx="2" />
+                  <path d="M16 5v22M5 16h22" />
+                </svg>
+              }
+              @case ('people') {
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="22" cy="14" r="3" />
+                  <path d="M4 26c0-4 3.5-7 8-7s8 3 8 7M18 26c0-3 2.2-5.5 5-5.5s5 2.5 5 5.5" />
+                </svg>
+              }
+              @case ('pencil') {
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <path d="m6 26 2-7L21 6l5 5-13 13-7 2Z" />
+                  <path d="m19 8 5 5" />
+                </svg>
+              }
+              @default {
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <rect x="6" y="6" width="20" height="20" rx="1" />
+                  <rect x="11" y="11" width="10" height="10" rx="1" />
+                </svg>
+              }
+            }
+          </span>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section timeline" aria-labelledby="timeline-title">
+  <div class="container timeline__inner">
+    <div class="timeline__head">
+      <span class="eyebrow">The years</span>
+      <h2 class="h2 timeline__title" id="timeline-title" appReveal>
+        A slow
+        <em class="serif-italic clay">unfolding.</em>
+      </h2>
+      <p class="timeline__lead" appReveal [revealDelay]="80">
+        Not a growth story in the usual sense. More seats would have been easy; better attention was
+        the harder choice.
+      </p>
+    </div>
+
+    <ol class="timeline__list">
+      @for (item of timeline; track item.year; let i = $index) {
+        <li class="timeline__item" appReveal [revealDelay]="i * 70">
+          <span class="timeline__year">{{ item.year }}</span>
+          <div class="timeline__content">
+            <h3 class="timeline__item-title">{{ item.title }}</h3>
+            <p>{{ item.text }}</p>
+          </div>
+          <span class="timeline__dot" aria-hidden="true"></span>
+        </li>
+      }
+    </ol>
+  </div>
+</section>
+
+<section class="section method section--dark" aria-labelledby="method-title">
+  <div class="container">
+    <div class="method__head">
+      <span class="eyebrow eyebrow--light">The method</span>
+      <h2 class="h2 method__title" id="method-title" appReveal>
+        Four habits,
+        <em class="serif-italic">every week.</em>
+      </h2>
+      <p class="method__lead" appReveal [revealDelay]="80">
+        Teaching art is mostly teaching attention. These four habits shape the room, the timetable and
+        the conversation.
+      </p>
+    </div>
+
+    <div class="method__grid">
+      @for (step of approach; track step.number; let i = $index) {
+        <article class="method__item" appReveal [revealDelay]="i * 80">
+          <span class="method__num" aria-hidden="true">{{ step.number }}</span>
+          <h3 class="method__item-title">{{ step.title }}</h3>
+          <p>{{ step.text }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section faculty" aria-labelledby="faculty-title">
+  <div class="container">
+    <app-section-heading
+      eyebrow="The faculty"
+      title="Practising artists,"
+      accent="generous teachers."
+      description="Between them they paint, print, throw, illustrate and exhibit. They teach the habits they use in their own studios — including the habit of looking again."
+    />
+
+    <div class="faculty__grid">
+      @for (member of faculty; track member.name; let i = $index) {
+        <article class="faculty__card" appReveal [revealDelay]="i * 80">
+          <figure class="faculty__figure">
+            <img
+              [src]="member.image"
+              [alt]="member.alt"
+              width="480"
+              height="600"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+
+          <div class="faculty__body">
+            <div class="faculty__top">
+              <div>
+                <h3 class="faculty__name">{{ member.name }}</h3>
+                <p class="faculty__role">{{ member.role }}</p>
+              </div>
+              <span class="faculty__index" aria-hidden="true">{{ (i + 1).toString().padStart(2, '0') }}</span>
+            </div>
+
+            <p class="faculty__credentials">{{ member.credentials }}</p>
+            <p class="faculty__bio">{{ member.bio }}</p>
+
+            <ul class="faculty__tags" aria-label="Specialisms">
+              @for (specialism of member.specialisms; track specialism) {
+                <li>{{ specialism }}</li>
+              }
+            </ul>
+          </div>
+        </article>
+      }
+    </div>
+
+    <div class="faculty__note" appReveal>
+      <p>
+        <span aria-hidden="true">✳</span>
+        Visiting artists join each term for a critique and a public talk. The studio is better for the
+        company.
+      </p>
+      <a class="link-arrow" routerLink="/contact">Ask about the faculty</a>
+    </div>
+  </div>
+</section>
+
+<app-cta-section
+  eyebrow="Come and see"
+  title="The room is"
+  accent="the argument."
+  description="Book a twenty-minute visit. See the light, meet a teacher, ask the awkward questions. There is no portfolio to bring and no pressure to enrol."
+  buttonLabel="Arrange a visit"
+/>

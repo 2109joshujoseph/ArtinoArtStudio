@@ -1,0 +1,21 @@
+{
+  "name": "Artino Studio Art Academy",
+  "short_name": "Artino Studio",
+  "description": "Studio art classes in drawing, painting, ceramics, digital art and portfolio preparation in Fort Kochi, Kochi, Kerala.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f5efe4",
+  "theme_color": "#f5efe4",
+  "lang": "en-IN",
+  "dir": "ltr",
+  "categories": ["education", "art", "lifestyle"],
+  "icons": [
+    {
+      "src": "/logo-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

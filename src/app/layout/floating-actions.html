@@ -1,0 +1,38 @@
+<div class="floaties">
+  <a
+    class="floaties__button floaties__button--whatsapp"
+    [href]="whatsappUrl"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat with Artino Studio on WhatsApp"
+  >
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+      <path
+        d="M20.5 11.6a8.4 8.4 0 0 1-12.3 7.5L3.5 20.5l1.4-4.6a8.4 8.4 0 1 1 15.6-4.3Z"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M8.8 8.1c.2-.5.5-.5.8-.5h.6c.2 0 .4 0 .5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c-.1.2-.2.3 0 .6a6 6 0 0 0 2.7 2.3c.3.1.4 0 .6-.1l.7-.8c.2-.2.4-.2.6-.1l1.6.8c.3.1.4.3.4.5a1.8 1.8 0 0 1-1.8 1.8 7.8 7.8 0 0 1-7.1-7.1c0-.3.2-.6.3-.6Z"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+    <span class="floaties__tip">WhatsApp</span>
+  </a>
+
+  <button
+    type="button"
+    class="floaties__button floaties__button--top"
+    [class.is-visible]="visible()"
+    [attr.tabindex]="visible() ? 0 : -1"
+    [attr.aria-hidden]="!visible()"
+    aria-label="Back to top"
+    (click)="scrollToTop()"
+  >
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+      <path d="M12 19V5m-6 6 6-6 6 6" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    <span class="floaties__tip">Back to top</span>
+  </button>
+</div>

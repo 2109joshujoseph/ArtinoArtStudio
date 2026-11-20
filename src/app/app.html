@@ -1,0 +1,15 @@
+@if (showPreloader()) {
+  <app-preloader (finished)="onPreloaderFinished()" />
+}
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<app-scroll-progress />
+<app-site-header />
+
+<main id="main" class="app-main" [class.is-ready]="ready()">
+  <router-outlet />
+</main>
+
+<app-site-footer />
+<app-floating-actions />

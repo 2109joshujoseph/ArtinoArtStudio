@@ -1,0 +1,136 @@
+.stat-band {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--cream);
+  padding-block: clamp(4rem, 7vw, 6.5rem);
+}
+
+.stat-band::before {
+  content: '';
+  position: absolute;
+  right: -10%;
+  top: -45%;
+  width: 38rem;
+  height: 38rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(187, 86, 54, 0.2), transparent 68%);
+  pointer-events: none;
+}
+
+.stat-band__head {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.55fr);
+  align-items: end;
+  gap: 2rem 4rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.stat-band__title {
+  margin-top: 0.9rem;
+}
+
+.stat-band__title em {
+  color: var(--gold);
+}
+
+.stat-band__intro {
+  color: var(--cream-3);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 32ch;
+  padding-bottom: 0.4rem;
+}
+
+.stat-band__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--line-light);
+}
+
+.stat {
+  padding: 1.6rem 1.5rem 0.4rem 0;
+  border-right: 1px solid var(--line-light);
+}
+
+.stat:last-child {
+  border-right: 0;
+}
+
+.stat + .stat {
+  padding-left: 1.6rem;
+}
+
+.stat__value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2.9rem, 5.2vw, 4.6rem);
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+  color: var(--cream);
+  margin-bottom: 1rem;
+}
+
+.stat__label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.stat__note {
+  font-size: 0.82rem;
+  color: var(--ink-4);
+  line-height: 1.5;
+  max-width: 20ch;
+}
+
+@media (max-width: 900px) {
+  .stat-band__head {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-band__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stat:nth-child(2) {
+    border-right: 0;
+  }
+
+  .stat:nth-child(1),
+  .stat:nth-child(2) {
+    border-bottom: 1px solid var(--line-light);
+  }
+
+  .stat:nth-child(3) {
+    padding-left: 0;
+  }
+
+  .stat:nth-child(3),
+  .stat:nth-child(4) {
+    padding-top: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-band__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat,
+  .stat + .stat {
+    padding: 1.4rem 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--line-light);
+  }
+
+  .stat:last-child {
+    border-bottom: 0;
+  }
+}

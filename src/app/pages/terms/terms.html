@@ -1,0 +1,168 @@
+<section class="legal-hero">
+  <div class="container">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a routerLink="/">Home</a><span aria-hidden="true">/</span></li>
+        <li><span aria-current="page">Terms</span></li>
+      </ol>
+    </nav>
+    <span class="eyebrow">The studio agreement</span>
+    <h1 class="h1 legal-hero__title">Terms, <em class="serif-italic clay">without the fog.</em></h1>
+    <p class="lead legal-hero__lead">
+      How enrolment, fees, missed classes and studio conduct work. If anything here is unclear, ask us
+      before you enrol — we would rather explain it now.
+    </p>
+    <p class="legal-hero__updated">Last updated · {{ updated }}</p>
+  </div>
+</section>
+
+<section class="section legal">
+  <div class="container legal__layout">
+    <aside class="legal__toc" aria-label="On this page">
+      <p class="legal__toc-title">On this page</p>
+      <ol>
+        <li><a href="#enrolment">Enrolment</a></li>
+        <li><a href="#fees">Fees & payment</a></li>
+        <li><a href="#attendance">Attendance</a></li>
+        <li><a href="#cancellation">Cancellation</a></li>
+        <li><a href="#materials">Materials & safety</a></li>
+        <li><a href="#ceramics">Ceramics & firing</a></li>
+        <li><a href="#artwork">Artwork & photography</a></li>
+        <li><a href="#conduct">Studio conduct</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ol>
+    </aside>
+
+    <div class="legal__body">
+      <section id="enrolment">
+        <h2>Enrolment</h2>
+        <p>
+          A place is confirmed when the term fee is received and we have confirmed the batch in writing.
+          Enrolment is for the named student and the named term; places are not transferable without
+          the studio's agreement.
+        </p>
+        <p>
+          We keep cohorts at eight students. If a programme is full, we will offer the next available
+          batch or add you to a waiting list.
+        </p>
+      </section>
+
+      <section id="fees">
+        <h2>Fees & payment</h2>
+        <p>
+          Term fees are listed on the programme pages and are payable in full before the first class,
+          unless a payment plan has been agreed in writing. Fees include tuition, studio time, shared
+          materials and ceramics firing as described in the programme notes.
+        </p>
+        <p>
+          Personal sketchbooks, specialised papers and any tools you choose to keep are not included.
+          We will send a short material list before the term begins.
+        </p>
+        <p>
+          We review fees once a year. Any change applies to the following term and will be communicated
+          before enrolment opens.
+        </p>
+      </section>
+
+      <section id="attendance">
+        <h2>Attendance</h2>
+        <p>
+          Classes begin on time. Please arrive a few minutes early so the studio can settle. Each term
+          includes one complimentary make-up class, subject to availability, if you miss a session.
+          Additional make-ups are at the studio's discretion.
+        </p>
+        <p>
+          If a class is cancelled by the studio, we will offer a replacement session or a pro-rata
+          credit. We will always tell you as early as possible.
+        </p>
+      </section>
+
+      <section id="cancellation">
+        <h2>Cancellation & refunds</h2>
+        <p>
+          If you withdraw more than seven days before the term begins, we refund the fee less a small
+          administrative charge. Within seven days of the start, we can usually offer a credit toward a
+          later term rather than a refund, because the seat has been held.
+        </p>
+        <p>
+          After the first two classes, fees are non-refundable. If you need to stop for medical or
+          compassionate reasons, talk to us — we will look for a fair arrangement.
+        </p>
+        <p>
+          The Portfolio Atelier is limited and selective. Its deposit is non-refundable once the
+          portfolio review has taken place.
+        </p>
+      </section>
+
+      <section id="materials">
+        <h2>Materials & safety</h2>
+        <p>
+          Some materials — solvents, sharp tools, kilns — require care. Students will be shown how to
+          use equipment safely and are expected to follow studio instructions. Closed shoes are required
+          in the ceramics and print areas.
+        </p>
+        <p>
+          Please tell us about allergies, sensitivities or access needs before the first class so we can
+          prepare the room and the materials.
+        </p>
+      </section>
+
+      <section id="ceramics">
+        <h2>Ceramics & firing</h2>
+        <p>
+          Firing is a slow process and occasionally unpredictable. Work can crack, warp or glaze in
+          unexpected ways; this is part of the material, not a failure of the course. We fire at
+          stoneware temperatures and will keep your work safe until it is collected.
+        </p>
+        <p>
+          Work left uncollected for more than eight weeks after the term ends may be recycled or
+          donated, unless you have arranged otherwise.
+        </p>
+      </section>
+
+      <section id="artwork">
+        <h2>Artwork & photography</h2>
+        <p>
+          Students own the work they make. We may photograph classes, work in progress or exhibitions
+          for the studio archive and our website, but only with consent. You can decline, or withdraw
+          consent later, without affecting your place.
+        </p>
+        <p>
+          If you would like your work excluded from the end-of-term exhibition, tell us — showing is
+          encouraged, never compulsory.
+        </p>
+      </section>
+
+      <section id="conduct">
+        <h2>Studio conduct</h2>
+        <p>
+          The studio is a shared room. We expect care for materials, respect for other students and
+          attention during critique. Repeated disruption, unsafe behaviour or disrespect may lead to a
+          conversation and, in rare cases, to a place being withdrawn.
+        </p>
+        <p>
+          Adults and children share some evening batches. Guardians of younger students should collect
+          them promptly at the end of class.
+        </p>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Questions about these terms can go to the studio:</p>
+        <address class="legal__address">
+          {{ site.legalName }}<br />
+          @for (line of site.addressLines; track line) {
+            {{ line }}<br />
+          }
+          {{ site.locality }} {{ site.postalCode }}, {{ site.region }}, {{ site.country }}<br />
+          <a [href]="'mailto:' + site.email">{{ site.email }}</a> ·
+          <a [href]="'tel:' + site.phoneHref">{{ site.phone }}</a>
+        </address>
+        <p class="legal__note">
+          These terms are written for clarity, not legal theatre. They may be updated as the studio
+          changes; the version on this page applies from the date above.
+        </p>
+      </section>
+    </div>
+  </div>
+</section>

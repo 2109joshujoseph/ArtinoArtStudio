@@ -1,0 +1,329 @@
+<section class="hero" aria-labelledby="hero-title">
+  <span class="hero__ghost" aria-hidden="true">Artino</span>
+  <span class="hero__glow" aria-hidden="true"></span>
+
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      <span class="eyebrow hero__eyebrow">Fort Kochi · Since 2014</span>
+
+      <h1 class="display hero__title" id="hero-title">
+        <span class="hero__line"><span class="hero__line-inner">Where</span></span>
+        <span class="hero__line"><span class="hero__line-inner">imagination</span></span>
+        <span class="hero__line"><span class="hero__line-inner"><em class="serif-italic clay">finds its craft.</em></span></span>
+      </h1>
+
+      <p class="lead hero__lead">
+        A studio-first art academy for children, teens and adults. Small tables, real materials and the
+        quiet attention your work deserves.
+      </p>
+
+      <div class="hero__actions">
+        <a class="btn btn--primary" routerLink="/courses">
+          Explore programmes
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M7 17 17 7M8 7h9v9" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+        <a class="btn btn--outline" routerLink="/contact">Book a studio visit</a>
+      </div>
+
+      <div class="hero__meta">
+        <div class="hero__rating">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <p><strong>4.9</strong> from 120+ studio families</p>
+        </div>
+
+        <a class="hero__scroll" routerLink="/courses" aria-label="Scroll to programmes">
+          <span>Scroll to explore</span>
+          <span class="hero__scroll-line" aria-hidden="true"></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero__collage">
+      <figure class="hero__frame hero__frame--main">
+        <img
+          [src]="images.heroMain"
+          alt="Loaded paintbrushes resting on a brightly painted canvas"
+          width="900"
+          height="1125"
+          fetchpriority="high"
+          decoding="async"
+        />
+        <figcaption class="hero__caption">
+          <span class="hero__caption-label">Studio life</span>
+          <span>Tuesday painting, north light</span>
+        </figcaption>
+      </figure>
+
+      <figure class="hero__frame hero__frame--tertiary">
+        <img
+          [src]="images.heroTertiary"
+          alt="Dark blue abstract painting with strokes of orange and red"
+          width="600"
+          height="750"
+          loading="eager"
+          decoding="async"
+        />
+      </figure>
+
+      <figure class="hero__frame hero__frame--secondary">
+        <img
+          [src]="images.heroSecondary"
+          alt="A wooden painter's palette loaded with mixed colours"
+          width="600"
+          height="600"
+          loading="eager"
+          decoding="async"
+        />
+        <figcaption class="hero__caption hero__caption--small">The palette, mid-term</figcaption>
+      </figure>
+
+      <div class="hero__badge" aria-hidden="true">
+        <svg viewBox="0 0 120 120">
+          <defs>
+            <path id="hero-badge-path" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0" />
+          </defs>
+          <text>
+            <textPath href="#hero-badge-path">
+              DRAWING · PAINTING · CERAMICS · PRINTMAKING · DIGITAL ·
+            </textPath>
+          </text>
+        </svg>
+        <span class="hero__badge-center">Est.<br />2014</span>
+      </div>
+
+      <div class="hero__note">
+        <span class="hero__note-num">08</span>
+        <span>seats at<br />one long table</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-marquee [items]="marqueeItems" theme="dark" />
+
+<section class="section intro" aria-labelledby="intro-title">
+  <div class="container intro__inner">
+    <div class="intro__aside" appReveal="left">
+      <figure class="intro__figure img-wrap img-wrap--zoom">
+        <img
+          src="images/brushes-flatlay.jpg"
+          alt="Well-used paintbrushes loaded with colour in the studio"
+          width="700"
+          height="880"
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+      <p class="intro__caption">
+        <span aria-hidden="true">✳</span>
+        Brushes that have seen a few terms, and a table that stays the same size.
+      </p>
+    </div>
+
+    <div class="intro__body">
+      <span class="eyebrow">The studio</span>
+      <h2 class="h2 intro__title" id="intro-title" appReveal>
+        Not a class.
+        <em class="serif-italic clay">A practice.</em>
+      </h2>
+
+      <p class="lead intro__lead" appReveal [revealDelay]="80">
+        Artino began in 2014 with one long table, six borrowed chairs and a belief that art is learned
+        slowly, in company.
+      </p>
+
+      <p class="intro__copy" appReveal [revealDelay]="140">
+        We are not an exam factory and we are not a hobby club. We are a working studio where children,
+        teens and adults make real things with real materials, guided by artists who still make their
+        own work. Every term has a beginning, a middle, a critique and a wall.
+      </p>
+
+      <ul class="intro__values">
+        @for (value of values; track value.title; let i = $index) {
+          <li appReveal [revealDelay]="i * 90">
+            <span class="intro__value-num" aria-hidden="true">{{ (i + 1).toString().padStart(2, '0') }}</span>
+            <div>
+              <h3 class="intro__value-title">{{ value.title }}</h3>
+              <p>{{ value.text }}</p>
+            </div>
+          </li>
+        }
+      </ul>
+
+      <div class="intro__footer" appReveal>
+        <a class="link-arrow" routerLink="/about">Our story</a>
+        <div class="intro__signature">
+          <span class="intro__signature-name">Anaya Menon</span>
+          <span class="intro__signature-role">Founder & Painting Faculty</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section programmes" aria-labelledby="programmes-title">
+  <div class="container">
+    <app-section-heading
+      eyebrow="Programmes"
+      title="Six ways to"
+      accent="begin."
+      description="From a first sketchbook to a portfolio review. Each programme is a term-long practice — not a weekend workshop."
+      linkLabel="All programmes"
+      linkPath="/courses"
+    />
+
+    <div class="programmes__grid">
+      @for (programme of featured; track programme.slug; let i = $index) {
+        <div appReveal [revealDelay]="i * 100">
+          <app-course-card [program]="programme" />
+        </div>
+      }
+    </div>
+
+    <div class="programmes__foot" appReveal>
+      <p>
+        <span aria-hidden="true">✳</span>
+        Terms run four times a year. Fees include studio time, tuition, firing and shared materials.
+      </p>
+      <a class="btn btn--outline btn--sm" routerLink="/courses">Compare all six programmes</a>
+    </div>
+  </div>
+</section>
+
+<app-stat-band />
+
+<section class="section gallery-preview section--cream" aria-labelledby="gallery-preview-title">
+  <div class="container">
+    <app-section-heading
+      eyebrow="Selected work"
+      title="Work from"
+      accent="the table."
+      description="A living archive of student and faculty work. Every piece below began as a question in the studio."
+      linkLabel="Open the gallery"
+      linkPath="/gallery"
+    />
+
+    <app-gallery-grid [items]="galleryPreview" [masonry]="true" />
+
+    <p class="gallery-preview__note" appReveal>
+      Exhibited at the end-of-term show · Fort Kochi, 2024 – 2025
+    </p>
+  </div>
+</section>
+
+<section class="section approach" aria-labelledby="approach-title">
+  <div class="container approach__inner">
+    <div class="approach__head">
+      <span class="eyebrow">How we teach</span>
+      <h2 class="h2 approach__title" id="approach-title" appReveal>
+        Slow looking,
+        <em class="serif-italic clay">close attention.</em>
+      </h2>
+      <p class="approach__lead" appReveal [revealDelay]="80">
+        Four habits shape every programme, every week, every critique. They are simple, and they take
+        time.
+      </p>
+      <a class="link-arrow approach__link" routerLink="/about">Inside the method</a>
+    </div>
+
+    <ol class="approach__list">
+      @for (step of approach; track step.number; let i = $index) {
+        <li class="approach__item" appReveal [revealDelay]="i * 80">
+          <span class="approach__num" aria-hidden="true">{{ step.number }}</span>
+          <div class="approach__body">
+            <h3 class="h3">{{ step.title }}</h3>
+            <p>{{ step.text }}</p>
+          </div>
+          <span class="approach__mark" aria-hidden="true">✳</span>
+        </li>
+      }
+    </ol>
+  </div>
+</section>
+
+<section class="section faculty section--cream" aria-labelledby="faculty-title">
+  <div class="container">
+    <app-section-heading
+      eyebrow="The faculty"
+      title="Artists who"
+      accent="teach."
+      description="Practising painters, printmakers, illustrators and potters. They bring the studio habits they use in their own work."
+      linkLabel="Meet the faculty"
+      linkPath="/about"
+    />
+
+    <div class="faculty__grid">
+      @for (member of faculty; track member.name; let i = $index) {
+        <article class="faculty__card" appReveal [revealDelay]="i * 90">
+          <figure class="faculty__figure img-wrap img-wrap--zoom">
+            <img
+              [src]="member.image"
+              [alt]="member.alt"
+              width="600"
+              height="750"
+              loading="lazy"
+              decoding="async"
+            />
+            <ul class="faculty__specialisms">
+              @for (specialism of member.specialisms; track specialism) {
+                <li>{{ specialism }}</li>
+              }
+            </ul>
+          </figure>
+          <div class="faculty__body">
+            <h3 class="faculty__name">{{ member.name }}</h3>
+            <p class="faculty__role">{{ member.role }}</p>
+            <p class="faculty__credentials">{{ member.credentials }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section testimonials" aria-labelledby="testimonials-title">
+  <div class="container testimonials__inner">
+    <div class="testimonials__head">
+      <span class="eyebrow">In their words</span>
+      <h2 class="h2 testimonials__title" id="testimonials-title" appReveal>
+        What the table
+        <em class="serif-italic clay">teaches.</em>
+      </h2>
+      <p class="testimonials__lead" appReveal [revealDelay]="80">
+        Parents, alumni and adult learners on what changes when the work is looked at closely.
+      </p>
+      <span class="testimonials__hint" aria-hidden="true">
+        <span class="dot"></span>
+        Hover to pause
+      </span>
+    </div>
+
+    <div appReveal="right">
+      <app-testimonial-slider />
+    </div>
+  </div>
+</section>
+
+<section class="section faq-home" aria-labelledby="faq-home-title">
+  <div class="container faq-home__inner">
+    <div class="faq-home__head">
+      <span class="eyebrow">Good to know</span>
+      <h2 class="h2" id="faq-home-title" appReveal>
+        A few honest
+        <em class="serif-italic clay">answers.</em>
+      </h2>
+      <p class="faq-home__lead" appReveal [revealDelay]="80">
+        Still wondering about something? Write to us — a teacher will answer, not a chatbot.
+      </p>
+      <a class="link-arrow" routerLink="/contact">Ask a question</a>
+    </div>
+
+    <div appReveal="right">
+      <app-faq-accordion [items]="faqs" />
+    </div>
+  </div>
+</section>
+
+<app-cta-section />

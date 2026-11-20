@@ -1,0 +1,200 @@
+<app-page-hero
+  eyebrow="Programmes"
+  title="Find your"
+  accent="table."
+  description="Six term-long practices in drawing, painting, ceramics, printmaking, digital art and portfolio preparation. Small cohorts, real materials, honest critique."
+  image="images/abstract-impasto.jpg"
+  alt="A thickly layered abstract painting in rainbow colours"
+  [crumbs]="[
+    { name: 'Home', path: '/' },
+    { name: 'Programmes', path: '/courses' }
+  ]"
+>
+  <a class="btn btn--primary" routerLink="/contact" [queryParams]="{ subject: 'Studio visit' }">Book a studio visit</a>
+  <a class="btn btn--outline" routerLink="/contact" [queryParams]="{ subject: 'Fees and dates' }">Ask about fees</a>
+</app-page-hero>
+
+<section class="section courses" aria-labelledby="courses-title">
+  <div class="container">
+    <app-section-heading
+      eyebrow="The full list"
+      title="Choose a"
+      accent="practice."
+      description="Every programme runs for a full term and ends with a body of work. Filter by discipline, or browse the comparison table below."
+    />
+
+    <div class="courses__toolbar">
+      <div class="courses__filters" role="group" aria-label="Filter programmes by discipline">
+        @for (category of categories; track category.value) {
+          <button
+            type="button"
+            class="chip"
+            [class.chip--active]="activeCategory() === category.value"
+            [attr.aria-pressed]="activeCategory() === category.value"
+            (click)="setCategory(category.value)"
+          >
+            {{ category.label }}
+          </button>
+        }
+      </div>
+
+      <p class="courses__count" aria-live="polite">
+        Showing {{ filtered().length.toString().padStart(2, '0') }} of
+        {{ programs.length.toString().padStart(2, '0') }} programmes
+      </p>
+    </div>
+
+    <div class="courses__grid">
+      @for (programme of filtered(); track programme.slug; let i = $index) {
+        <div appReveal [revealDelay]="(i % 3) * 90">
+          <app-course-card [program]="programme" />
+        </div>
+      }
+    </div>
+
+    <p class="courses__note" appReveal>
+      <span aria-hidden="true">✳</span>
+      Fees are per term and include shared materials. Payment plans are available for the Portfolio Atelier.
+    </p>
+  </div>
+</section>
+
+<section class="section compare section--cream" aria-labelledby="compare-title">
+  <div class="container">
+    <app-section-heading
+      eyebrow="At a glance"
+      title="Compare the"
+      accent="terms."
+      description="Schedules are indicative; we will suggest a batch that fits your week. All classes are taught in person at the Fort Kochi studio."
+      linkLabel="Ask a question"
+      linkPath="/contact"
+    />
+
+    <div class="compare__table-wrap" appReveal>
+      <table class="compare__table">
+        <caption class="sr-only">
+          Comparison of Artino Studio programmes, including age group, duration, schedule and term fee
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">Programme</th>
+            <th scope="col">Ages</th>
+            <th scope="col">Length</th>
+            <th scope="col">Weekly times</th>
+            <th scope="col">Level</th>
+            <th scope="col">Term fee</th>
+            <th scope="col"><span class="sr-only">Enquire</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (programme of programs; track programme.slug) {
+            <tr [id]="programme.slug">
+              <th scope="row">
+                <a [routerLink]="'/contact'" [queryParams]="{ course: programme.title }">{{ programme.title }}</a>
+                <span class="compare__category">{{ programme.category }}</span>
+              </th>
+              <td>{{ programme.ageGroup }}</td>
+              <td>{{ programme.duration }}</td>
+              <td>{{ programme.schedule }}</td>
+              <td>{{ programme.level }}</td>
+              <td class="compare__fee">{{ programme.fee }}</td>
+              <td>
+                <a
+                  class="compare__link"
+                  [routerLink]="'/contact'"
+                  [queryParams]="{ course: programme.title }"
+                  [attr.aria-label]="'Enquire about ' + programme.title"
+                  >↗</a
+                >
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section admissions" aria-labelledby="admissions-title">
+  <div class="container">
+    <div class="admissions__head">
+      <span class="eyebrow">Admissions</span>
+      <h2 class="h2 admissions__title" id="admissions-title" appReveal>
+        Three steps,
+        <em class="serif-italic clay">no ceremony.</em>
+      </h2>
+      <p class="admissions__lead" appReveal [revealDelay]="80">
+        There is no entrance exam and no portfolio requirement, except for the Portfolio Atelier. We
+        begin with a conversation and a visit.
+      </p>
+      <a class="btn btn--outline btn--sm" routerLink="/contact" [queryParams]="{ subject: 'Admissions' }">
+        Start an application
+      </a>
+    </div>
+
+    <ol class="admissions__steps">
+      @for (step of steps; track step.number; let i = $index) {
+        <li class="admissions__step" appReveal [revealDelay]="i * 100">
+          <span class="admissions__num" aria-hidden="true">{{ step.number }}</span>
+          <h3 class="h3 admissions__step-title">{{ step.title }}</h3>
+          <p>{{ step.text }}</p>
+          <span class="admissions__line" aria-hidden="true"></span>
+        </li>
+      }
+    </ol>
+  </div>
+</section>
+
+<section class="section included section--cream" aria-labelledby="included-title">
+  <div class="container included__inner">
+    <div class="included__head">
+      <span class="eyebrow">Every term</span>
+      <h2 class="h2 included__title" id="included-title" appReveal>
+        What the fee
+        <em class="serif-italic clay">holds.</em>
+      </h2>
+      <p class="included__lead" appReveal [revealDelay]="80">
+        We keep material lists short and honest. If something is not included, you will know before you
+        enrol.
+      </p>
+    </div>
+
+    <ul class="included__list">
+      @for (item of included; track item.title; let i = $index) {
+        <li appReveal [revealDelay]="i * 80">
+          <span class="included__num" aria-hidden="true">{{ (i + 1).toString().padStart(2, '0') }}</span>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.text }}</p>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<section class="section faq-courses" aria-labelledby="faq-courses-title">
+  <div class="container faq-courses__inner">
+    <div class="faq-courses__head">
+      <span class="eyebrow">Questions</span>
+      <h2 class="h2" id="faq-courses-title" appReveal>
+        Before you
+        <em class="serif-italic clay">enrol.</em>
+      </h2>
+      <p class="faq-courses__lead" appReveal [revealDelay]="80">
+        Everything students and parents usually ask, answered plainly.
+      </p>
+      <a class="link-arrow" routerLink="/contact">Still unsure? Write to us</a>
+    </div>
+
+    <div appReveal="right">
+      <app-faq-accordion [items]="faqs" />
+    </div>
+  </div>
+</section>
+
+<app-cta-section
+  eyebrow="Term dates"
+  title="The next term is"
+  accent="filling."
+  description="Spring term begins in January. Tell us what you would like to make, and we will find the right table for it."
+  buttonLabel="Reserve a seat"
+/>

@@ -1,0 +1,165 @@
+<section class="legal-hero">
+  <div class="container">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a routerLink="/">Home</a><span aria-hidden="true">/</span></li>
+        <li><span aria-current="page">Privacy</span></li>
+      </ol>
+    </nav>
+    <span class="eyebrow">The fine print</span>
+    <h1 class="h1 legal-hero__title">Privacy, <em class="serif-italic clay">plainly.</em></h1>
+    <p class="lead legal-hero__lead">
+      We collect very little, keep it in the studio, and never sell it. This page explains what that
+      means in practice.
+    </p>
+    <p class="legal-hero__updated">Last updated · {{ updated }}</p>
+  </div>
+</section>
+
+<section class="section legal">
+  <div class="container legal__layout">
+    <aside class="legal__toc" aria-label="On this page">
+      <p class="legal__toc-title">On this page</p>
+      <ol>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#collect">What we collect</a></li>
+        <li><a href="#use">How we use it</a></li>
+        <li><a href="#cookies">Cookies & analytics</a></li>
+        <li><a href="#sharing">Sharing</a></li>
+        <li><a href="#retention">Retention</a></li>
+        <li><a href="#rights">Your rights</a></li>
+        <li><a href="#children">Children</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ol>
+    </aside>
+
+    <div class="legal__body">
+      <section id="overview">
+        <h2>Overview</h2>
+        <p>
+          Artino Studio Art Academy (“Artino”, “the studio”, “we”) is an art school in Fort Kochi,
+          Kerala. This policy covers this website and the enquiries, admissions and newsletter
+          subscriptions that begin here.
+        </p>
+        <p>
+          We aim to follow the spirit of India's Digital Personal Data Protection Act, 2023: collect
+          only what we need, use it for a clear purpose, and give you a straightforward way to ask
+          questions or have it removed.
+        </p>
+      </section>
+
+      <section id="collect">
+        <h2>What we collect</h2>
+        <p>When you write to us or enquire about a programme, we may receive:</p>
+        <ul>
+          <li>Your name, email address and, if you choose to share it, a phone number.</li>
+          <li>The programme or subject you are interested in.</li>
+          <li>The content of your message, including any details you volunteer about age or experience.</li>
+          <li>The date and time of your enquiry.</li>
+        </ul>
+        <p>
+          If you subscribe to the studio letter, we collect only your email address. We do not use
+          tracking pixels in our emails.
+        </p>
+        <p>
+          We do not ask for payment details through this website. Fees are arranged directly with the
+          studio by bank transfer or in person.
+        </p>
+      </section>
+
+      <section id="use">
+        <h2>How we use it</h2>
+        <ul>
+          <li>To reply to your enquiry and suggest a programme, batch or visit time.</li>
+          <li>To manage admissions, attendance and studio communication.</li>
+          <li>To send the monthly studio letter, if you have asked for it.</li>
+          <li>To keep simple records required for running a small school.</li>
+        </ul>
+        <p>
+          We will not add you to a marketing list because you sent an enquiry. The newsletter is
+          opt-in, and every letter includes a way to unsubscribe.
+        </p>
+      </section>
+
+      <section id="cookies">
+        <h2>Cookies & analytics</h2>
+        <p>
+          This website does not set advertising cookies or run third-party tracking scripts. It may use
+          your browser's local storage to remember small interface preferences, such as whether you have
+          already seen the opening animation. That information stays on your device.
+        </p>
+        <p>
+          If we add privacy-respecting analytics in future, this page will be updated before it goes
+          live.
+        </p>
+      </section>
+
+      <section id="sharing">
+        <h2>Sharing</h2>
+        <p>
+          We do not sell, rent or trade personal information. Your details are seen only by the studio
+          team who need them to answer your enquiry or teach your class.
+        </p>
+        <p>
+          We may use trusted service providers for email or website hosting. They process data on our
+          instructions and are not permitted to use it for their own marketing. We may also disclose
+          information where the law requires it.
+        </p>
+      </section>
+
+      <section id="retention">
+        <h2>Retention</h2>
+        <p>
+          Enquiries that do not lead to enrolment are kept for up to twelve months, then deleted.
+          Student records are kept for the duration of study and for a reasonable period afterwards for
+          administrative and alumni purposes. Newsletter details are kept until you unsubscribe.
+        </p>
+      </section>
+
+      <section id="rights">
+        <h2>Your rights</h2>
+        <p>You can ask us to:</p>
+        <ul>
+          <li>Tell you what personal information we hold about you.</li>
+          <li>Correct anything that is inaccurate.</li>
+          <li>Delete information we no longer need.</li>
+          <li>Stop sending you the newsletter.</li>
+        </ul>
+        <p>
+          Write to <a [href]="'mailto:' + site.email">{{ site.email }}</a> and we will respond within a
+          reasonable time, usually within two weeks. There is no charge for a routine request.
+        </p>
+      </section>
+
+      <section id="children">
+        <h2>Children</h2>
+        <p>
+          Many of our students are under eighteen. Enquiries for a child should be made by a parent or
+          guardian, and we ask for the guardian's contact details rather than the child's. Photographs
+          of student work or classes are used only with permission, and consent can be withdrawn at any
+          time.
+        </p>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>
+          Questions about this policy, or about your information, can go to the studio:
+        </p>
+        <address class="legal__address">
+          {{ site.legalName }}<br />
+          @for (line of site.addressLines; track line) {
+            {{ line }}<br />
+          }
+          {{ site.locality }} {{ site.postalCode }}, {{ site.region }}, {{ site.country }}<br />
+          <a [href]="'mailto:' + site.email">{{ site.email }}</a> ·
+          <a [href]="'tel:' + site.phoneHref">{{ site.phone }}</a>
+        </address>
+        <p class="legal__note">
+          This page is written in plain language for clarity. It is not legal advice, and we may update
+          it as the studio or the law changes.
+        </p>
+      </section>
+    </div>
+  </div>
+</section>

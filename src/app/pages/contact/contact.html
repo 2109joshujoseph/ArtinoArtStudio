@@ -1,0 +1,260 @@
+<app-page-hero
+  eyebrow="Contact"
+  title="Come and"
+  accent="find us."
+  description="A studio visit is the best way to understand the place. Twenty minutes, a cup of tea, and a look at the light."
+  image="images/palette.jpg"
+  alt="Watercolour pans, brushes and a palette on a white studio table"
+  [crumbs]="[
+    { name: 'Home', path: '/' },
+    { name: 'Contact', path: '/contact' }
+  ]"
+>
+  <a class="btn btn--primary" [href]="'tel:' + site.phoneHref">Call the studio</a>
+  <a class="btn btn--outline" [href]="'mailto:' + site.email">Email us</a>
+</app-page-hero>
+
+<section class="section contact-main" aria-labelledby="contact-title">
+  <div class="container contact__inner">
+    <div class="contact__form-wrap" appReveal>
+      @if (!submitted()) {
+        <header class="contact__head">
+          <span class="eyebrow">Write to us</span>
+          <h2 class="h2 contact__title" id="contact-title">
+            Tell us what
+            <em class="serif-italic clay">you'd like to make.</em>
+          </h2>
+          <p class="contact__intro">
+            A teacher reads every note. Tell us a little about your age, experience and the days that
+            suit you — we will suggest a programme and a batch.
+          </p>
+        </header>
+
+        <form class="contact__form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+          <div class="contact__fields">
+            <div class="field">
+              <label class="field__label" for="contact-name">Your name <span aria-hidden="true">*</span></label>
+              <input
+                id="contact-name"
+                type="text"
+                formControlName="name"
+                autocomplete="name"
+                placeholder="Full name"
+                [class.is-invalid]="form.controls.name.touched && form.controls.name.invalid"
+                [attr.aria-invalid]="form.controls.name.touched && form.controls.name.invalid"
+                [attr.aria-describedby]="
+                  form.controls.name.touched && form.controls.name.invalid ? 'contact-name-error' : null
+                "
+              />
+              @if (form.controls.name.touched && form.controls.name.invalid) {
+                <p class="field__error" id="contact-name-error">Please tell us your name (at least 2 characters).</p>
+              }
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="contact-email">Email <span aria-hidden="true">*</span></label>
+              <input
+                id="contact-email"
+                type="email"
+                formControlName="email"
+                autocomplete="email"
+                placeholder="you@example.com"
+                [class.is-invalid]="form.controls.email.touched && form.controls.email.invalid"
+                [attr.aria-invalid]="form.controls.email.touched && form.controls.email.invalid"
+                [attr.aria-describedby]="
+                  form.controls.email.touched && form.controls.email.invalid ? 'contact-email-error' : null
+                "
+              />
+              @if (form.controls.email.touched && form.controls.email.invalid) {
+                <p class="field__error" id="contact-email-error">Please enter a valid email address.</p>
+              }
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="contact-phone">Phone <span>(optional)</span></label>
+              <input
+                id="contact-phone"
+                type="tel"
+                formControlName="phone"
+                autocomplete="tel"
+                placeholder="+91 98470 12345"
+                [class.is-invalid]="form.controls.phone.touched && form.controls.phone.invalid"
+                [attr.aria-invalid]="form.controls.phone.touched && form.controls.phone.invalid"
+                [attr.aria-describedby]="
+                  form.controls.phone.touched && form.controls.phone.invalid ? 'contact-phone-error' : null
+                "
+              />
+              @if (form.controls.phone.touched && form.controls.phone.invalid) {
+                <p class="field__error" id="contact-phone-error">Please enter a phone number we can reach you on.</p>
+              }
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="contact-interest">I'm interested in <span aria-hidden="true">*</span></label>
+              <select id="contact-interest" formControlName="interest">
+                @for (option of interestOptions; track option) {
+                  <option [value]="option">{{ option }}</option>
+                }
+              </select>
+            </div>
+
+            <div class="field contact__field--full">
+              <label class="field__label" for="contact-message">Your note <span aria-hidden="true">*</span></label>
+              <textarea
+                id="contact-message"
+                formControlName="message"
+                rows="5"
+                placeholder="A little about you, your experience, and the days that suit you."
+                [class.is-invalid]="form.controls.message.touched && form.controls.message.invalid"
+                [attr.aria-invalid]="form.controls.message.touched && form.controls.message.invalid"
+                [attr.aria-describedby]="
+                  form.controls.message.touched && form.controls.message.invalid ? 'contact-message-error' : null
+                "
+              ></textarea>
+              @if (form.controls.message.touched && form.controls.message.invalid) {
+                <p class="field__error" id="contact-message-error">
+                  Please add a few words (at least 10 characters).
+                </p>
+              }
+            </div>
+
+            <div class="field contact__field--full">
+              <label class="consent">
+                <input type="checkbox" formControlName="consent" />
+                <span class="consent__box" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m3 8 3.2 3.2L13 4.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+                <span class="consent__text">
+                  I agree to be contacted about my enquiry. Your details stay in the studio and are never
+                  shared.
+                  <span aria-hidden="true">*</span>
+                </span>
+              </label>
+              @if (form.controls.consent.touched && form.controls.consent.invalid) {
+                <p class="field__error">Please tick the box so we can reply.</p>
+              }
+            </div>
+          </div>
+
+          <div class="contact__submit">
+            <button type="submit" class="btn btn--primary">
+              Send your note
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <path d="M7 17 17 7M8 7h9v9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <p class="contact__submit-note">
+              We reply within two working days. Prefer email?
+              <a [href]="'mailto:' + site.email">{{ site.email }}</a>
+            </p>
+          </div>
+        </form>
+      } @else {
+        <div class="contact__success" role="status" aria-live="polite">
+          <span class="contact__success-mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+              <circle cx="24" cy="24" r="21" />
+              <path d="m14 24 7 7 13-15" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+          <span class="eyebrow">Note received</span>
+          <h2 class="h2 contact__success-title">
+            Thank you, {{ form.controls.name.value || 'friend' }}.
+            <em class="serif-italic clay">We'll be in touch.</em>
+          </h2>
+          <p class="contact__success-text">
+            Your note is with the studio. A teacher will reply within two working days — usually sooner.
+            If it is urgent, call us on
+            <a [href]="'tel:' + site.phoneHref">{{ site.phone }}</a>.
+          </p>
+          <div class="contact__success-actions">
+            <button type="button" class="btn btn--outline" (click)="sendAnother()">Send another note</button>
+            <a class="link-arrow" routerLink="/courses">Browse programmes</a>
+          </div>
+        </div>
+      }
+    </div>
+
+    <aside class="contact__aside" aria-label="Studio details">
+      <div class="contact__card">
+        <span class="contact__card-label">The studio</span>
+        <address class="contact__address">
+          @for (line of site.addressLines; track line) {
+            {{ line }}<br />
+          }
+          {{ site.locality }} {{ site.postalCode }}, {{ site.region }}<br />
+          {{ site.country }}
+        </address>
+        <a class="link-arrow contact__map" [href]="site.mapUrl" target="_blank" rel="noopener noreferrer">
+          Open in maps
+        </a>
+        <p class="contact__visit-note">
+          A six-minute walk from the Chinese fishing nets, first floor above Gallery Lane. Look for the
+          clay-coloured door.
+        </p>
+      </div>
+
+      <div class="contact__block">
+        <h3 class="contact__block-title">Studio hours</h3>
+        <dl class="contact__hours">
+          @for (entry of site.hours; track entry.days) {
+            <div>
+              <dt>{{ entry.days }}</dt>
+              <dd>{{ entry.time }}</dd>
+            </div>
+          }
+        </dl>
+        <p class="contact__small">Visits by appointment · tea included</p>
+      </div>
+
+      <div class="contact__block">
+        <h3 class="contact__block-title">Direct</h3>
+        <ul class="contact__links">
+          <li><a [href]="'tel:' + site.phoneHref">{{ site.phone }}</a></li>
+          <li><a [href]="'mailto:' + site.email">{{ site.email }}</a></li>
+        </ul>
+
+        <ul class="contact__socials" aria-label="Social media">
+          @for (social of site.socials; track social.label) {
+            <li>
+              <a [href]="social.url" target="_blank" rel="noopener noreferrer">{{ social.label }}</a>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <div class="contact__seal" aria-hidden="true">
+        <svg viewBox="0 0 120 120">
+          <defs>
+            <path id="contact-seal-path" d="M60,60 m-42,0 a42,42 0 1,1 84,0 a42,42 0 1,1 -84,0" />
+          </defs>
+          <text>
+            <textPath href="#contact-seal-path">ARTINO STUDIO · FORT KOCHI · OPEN BY APPOINTMENT · </textPath>
+          </text>
+        </svg>
+        <span class="contact__seal-star">✳</span>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="section contact-faq section--cream" aria-labelledby="contact-faq-title">
+  <div class="container contact-faq__inner">
+    <div class="contact-faq__head">
+      <span class="eyebrow">Before you write</span>
+      <h2 class="h2" id="contact-faq-title" appReveal>
+        Perhaps it is
+        <em class="serif-italic clay">already answered.</em>
+      </h2>
+      <p class="contact-faq__lead" appReveal [revealDelay]="80">
+        The questions we hear most often, from first-time students and returning families alike.
+      </p>
+    </div>
+
+    <div appReveal="right">
+      <app-faq-accordion [items]="faqs" />
+    </div>
+  </div>
+</section>

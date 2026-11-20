@@ -1,0 +1,107 @@
+<footer class="site-footer">
+  <div class="footer__top container">
+    <div class="footer__statement" appReveal>
+      <span class="eyebrow eyebrow--light">Artino Studio · Est. 2014</span>
+      <p class="footer__big">
+        Where imagination
+        <em class="serif-italic">finds its craft.</em>
+      </p>
+      <a class="link-arrow footer__cta" routerLink="/contact">Book a studio visit</a>
+    </div>
+
+    <div class="footer__letter">
+      <app-newsletter />
+    </div>
+  </div>
+
+  <div class="footer__grid container">
+    <div class="footer__brand">
+      <app-brand-logo tone="light" />
+      <p class="footer__about">
+        A studio-first art academy in Fort Kochi — teaching drawing, painting, ceramics, printmaking, digital
+        art and portfolio practice to children, teens and adults.
+      </p>
+
+      <address class="footer__address">
+        @for (line of site.addressLines; track line) {
+          {{ line }}<br />
+        }
+        {{ site.locality }} {{ site.postalCode }}, {{ site.region }}<br />
+        {{ site.country }}
+      </address>
+
+      <a class="footer__map" [href]="site.mapUrl" target="_blank" rel="noopener noreferrer">
+        Find the studio
+        <span aria-hidden="true">↗</span>
+      </a>
+
+      <ul class="footer__socials" aria-label="Social media">
+        @for (social of site.socials; track social.label) {
+          <li>
+            <a [href]="social.url" target="_blank" rel="noopener noreferrer">{{ social.label }}</a>
+          </li>
+        }
+      </ul>
+    </div>
+
+    <nav class="footer__col" aria-label="Explore the site">
+      <h2 class="footer__heading">Explore</h2>
+      <ul class="footer__links">
+        @for (link of links; track link.path) {
+          <li><a [routerLink]="link.path">{{ link.label }}</a></li>
+        }
+        <li><a routerLink="/contact" [queryParams]="{ subject: 'Studio visit' }">Studio visits</a></li>
+      </ul>
+    </nav>
+
+    <nav class="footer__col" aria-label="Programmes">
+      <h2 class="footer__heading">Programmes</h2>
+      <ul class="footer__links">
+        @for (programme of programmes; track programme.slug) {
+          <li>
+            <a [routerLink]="'/contact'" [queryParams]="{ course: programme.title }">{{ programme.title }}</a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <div class="footer__col footer__col--studio">
+      <h2 class="footer__heading">The studio</h2>
+
+      <dl class="footer__hours">
+        @for (entry of site.hours; track entry.days) {
+          <div class="footer__hours-row">
+            <dt>{{ entry.days }}</dt>
+            <dd>{{ entry.time }}</dd>
+          </div>
+        }
+      </dl>
+
+      <div class="footer__contact">
+        <a [href]="'tel:' + site.phoneHref">{{ site.phone }}</a>
+        <a [href]="'mailto:' + site.email">{{ site.email }}</a>
+      </div>
+
+      <p class="footer__note">{{ site.admissions }}</p>
+    </div>
+  </div>
+
+  <div class="footer__bottom container">
+    <p class="footer__copyright">
+      © {{ year }} {{ site.legalName }}. All artwork belongs to its maker.
+    </p>
+
+    <ul class="footer__legal">
+      <li><a routerLink="/privacy">Privacy</a></li>
+      <li><a routerLink="/terms">Terms</a></li>
+      <li><a routerLink="/gallery">Archive</a></li>
+    </ul>
+
+    <p class="footer__place">
+      <span class="dot" aria-hidden="true"></span>
+      Made slowly in Fort Kochi, Kerala
+    </p>
+  </div>
+
+  <div class="footer__watermark" aria-hidden="true">Artino</div>
+</footer>
